@@ -1,0 +1,173 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+  background: #f4f4f4;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  z-index: 999;
+  backdrop-filter: blur(5px);
+}
+
+.logo {
+  /* No font styles needed for image logo */
+}
+
+.logo img {
+  height: 60px;              /* Increased logo size */
+  width: auto;
+  border: 2px solid black;   /* Black border */
+  border-radius: 4px;        /* Slightly rounded corners */
+  padding: 2px;              /* Space inside border */
+  background-color: white;   /* Optional background for transparent logos */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #61dafb;
+  transform: scale(1.1);
+}
+
+/* Navbar on scroll: animated gradient */
+.navbar.scrolled {
+  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+  background-size: 600% 600%;
+  animation: gradientShift 8s ease infinite;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Sections */
+.section {
+  padding: 100px 20px 60px;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home {
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: white;
+}
+
+.services {
+  background: #ffffff;
+}
+
+.about {
+  background: #f0f0f0;
+}
+
+.contact {
+  background: #fafafa;
+}
+
+.section h1,
+.section h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.section p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Shortcut Boxes */
+.shortcut-boxes {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  border: 2px solid #61dafb;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 120px;
+}
+
+.box:hover {
+  background: #61dafb;
+  color: #0f2027;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background: #000;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+
+  .navbar.open .nav-links {
+    display: flex;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
